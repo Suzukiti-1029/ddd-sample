@@ -20,7 +20,7 @@ public class Main {
 		main.createUser(args[0]);
 	}
 
-	private void createUser(String userName) throws Exception {
+	public void createUser(String userName) throws Exception {
 		User user = new User(new UserName(userName));
 		if (userService.Exists(user)) {
 			throw new Exception(userName + "はすでに存在しています。");
