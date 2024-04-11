@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 public class UserService {
 	private final UserRepository userRepository;
 
-	public boolean Exists(User user) {
+	public boolean Exists(User user) throws Exception {
 		return Objects.equals(userRepository.find(user.getName()), null);
 	}
 }

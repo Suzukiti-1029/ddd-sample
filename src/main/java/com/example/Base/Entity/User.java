@@ -17,6 +17,14 @@ public class User {
 		name = userName;
 	}
 
+	public User(UserId userId, UserName userName) throws Exception {
+		this(userName);
+		if (Objects.equals(userId, null))
+			throw new Exception("User: userId must not be null.");
+		id = userId;
+
+	}
+
 	private UserId id;
 	private UserName name;
 }
