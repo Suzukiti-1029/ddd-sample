@@ -12,6 +12,6 @@ public class UserService {
 	private final UserRepository userRepository;
 
 	public boolean Exists(User user) throws Exception {
-		return Objects.equals(userRepository.find(user.getName()), null);
+		return !Objects.equals(userRepository.find(user.getName()), null);
 	}
 }
