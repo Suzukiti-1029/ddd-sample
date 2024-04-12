@@ -5,18 +5,19 @@ import com.example.Base.Entity.Service.UserService;
 import com.example.Base.Repository.UserRepository;
 import com.example.Base.ValueObject.UserName;
 
-import lombok.RequiredArgsConstructor;
-
-@RequiredArgsConstructor
 public class Main {
 	private final UserRepository userRepository;
 	private final UserService userService;
 
+	public Main(UserRepository uRepository) {
+		userRepository = uRepository;
+		userService = new UserService(uRepository);
+	}
+
 	public static void main(String[] args) throws Exception {
 		// TODO
 		UserRepository uRepository = null;
-		UserService uService = null;
-		Main main = new Main(uRepository, uService);
+		Main main = new Main(uRepository);
 		main.createUser(args[0]);
 	}
 
