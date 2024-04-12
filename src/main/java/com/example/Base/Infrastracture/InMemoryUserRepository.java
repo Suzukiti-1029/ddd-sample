@@ -1,13 +1,13 @@
-package com.example.Base.Repository.Impl;
+package com.example.Base.Infrastracture;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import com.example.Base.Entity.User;
-import com.example.Base.Repository.UserRepository;
-import com.example.Base.ValueObject.UserId;
-import com.example.Base.ValueObject.UserName;
+import com.example.Base.Domain.Entity.User;
+import com.example.Base.Domain.Repository.UserRepository;
+import com.example.Base.Domain.ValueObject.UserId;
+import com.example.Base.Domain.ValueObject.UserName;
 
 public class InMemoryUserRepository implements UserRepository {
 	// 疑似DB

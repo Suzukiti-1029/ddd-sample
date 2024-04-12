@@ -1,4 +1,4 @@
-package com.example.Base.ValueObject;
+package com.example.Base.Domain.ValueObject;
 
 import java.util.Objects;
 

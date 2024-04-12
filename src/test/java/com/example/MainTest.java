@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.Base.Repository.UserRepository;
-import com.example.Base.Repository.Impl.InMemoryUserRepository;
+import com.example.Base.Domain.Repository.UserRepository;
+import com.example.Base.Infrastracture.InMemoryUserRepository;
 
 public class MainTest {
 	@Test
