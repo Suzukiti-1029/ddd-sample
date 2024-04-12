@@ -1,4 +1,4 @@
-package com.example.Base.Infrastracture;
+package com.example.Base.Infrastructure;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
