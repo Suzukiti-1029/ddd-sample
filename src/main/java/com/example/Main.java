@@ -4,6 +4,8 @@ import com.example.Base.Domain.Entity.User;
 import com.example.Base.Domain.Repository.UserRepository;
 import com.example.Base.Domain.Service.UserService;
 import com.example.Base.Domain.ValueObject.UserName;
+import com.example.Base.Infrastructure.HibernateUserRepository;
+import com.example.Base.Infrastructure.PersistenceFactoryManager;
 
 public class Main {
 	private final UserRepository userRepository;
@@ -15,10 +17,16 @@ public class Main {
 	}
 
 	public static void main(String[] args) throws Exception {
-		// TODO
-		UserRepository uRepository = null;
-		Main main = new Main(uRepository);
-		main.createUser(args[0]);
+		PersistenceFactoryManager pfm = PersistenceFactoryManager.getInstance();
+		try {
+			UserRepository uRepository = new HibernateUserRepository(pfm);
+			Main main = new Main(uRepository);
+			main.createUser(args[0]);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			pfm.close();
+		}
 	}
 
 	public void createUser(String userName) throws Exception {

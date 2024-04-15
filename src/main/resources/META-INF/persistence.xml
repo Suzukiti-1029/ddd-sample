@@ -5,18 +5,23 @@
 	version="2.2">
 	<persistence-unit name="myPU" transaction-type="RESOURCE_LOCAL">
 		<!-- JPAプロバイダ -->
-		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<!-- マッピングするエンティティクラス -->
-		<class>com.example.MyEntity</class>
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<!-- マッピングするdataModelクラス -->
+		<class>com.example.Base.Infrastructure.UserDataModel</class>
 		<!-- データソースの設定 -->
 		<properties>
-			<property name="javax.persistence.jdbc.url"
+			<property name="jakarta.persistence.jdbc.url"
 				value="jdbc:mysql://localhost:3306/ddd_sample" />
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.user" value="ddd_user" />
-			<property name="javax.persistence.jdbc.password" value="ddd_password" />
-			<!-- ログレベルの設定 -->
-			<property name="eclipselink.logging.level" value="DEBUG" />
+			<property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+			<property name="jakarta.persistence.jdbc.user" value="ddd_user" />
+			<property name="jakarta.persistence.jdbc.password" value="ddd-password" />
+			<property name="jakarta.persistence.schema-generation.database.action"
+				value="create" />
+			<!-- Hibernateのプロパティ -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.highlight_sql" value="true" />
 		</properties>
 	</persistence-unit>
 </persistence>
