@@ -1,7 +1,5 @@
 package com.example.Base.Infrastructure;
 
-import java.util.Optional;
-
 import com.example.Base.Domain.Entity.User;
 import com.example.Base.Domain.Repository.UserRepository;
 import com.example.Base.Domain.ValueObject.UserName;
