@@ -10,24 +10,20 @@ import com.example.Base.Domain.ValueObject.UserName;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 
-public class ELUserRepository implements UserRepository {
-	private final String persistenceUnitName;
+public class HibernateUserRepository implements UserRepository {
+	private final EntityManagerFactory emf;
 
-	public ELUserRepository(String persistenceUnitName) {
-		this.persistenceUnitName = Objects.equals(persistenceUnitName, null)
-				? "myPU"
-				: persistenceUnitName;
+	public HibernateUserRepository(PersistenceFactoryManager pfm) throws Exception {
+		emf = pfm.provide();
 	}
 
 	@Override
 	public User find(UserName userName) throws Exception {
-		try (EntityManagerFactory emf = Persistence.createEntityManagerFactory(persistenceUnitName);
-				EntityManager em = emf.createEntityManager();) {
+		try (EntityManager em = emf.createEntityManager()) {
 			// Queryを生成するBuilder
 			CriteriaBuilder cb = em.getCriteriaBuilder();
 			// Query自体
@@ -49,19 +45,21 @@ public class ELUserRepository implements UserRepository {
 
 	@Override
 	public void save(User user) throws Exception {
-		try (
-				EntityManagerFactory emf = Persistence.createEntityManagerFactory(persistenceUnitName);
-				EntityManager em = emf.createEntityManager();) {
-			// em.getTransaction().begin();
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		try {
 			UserDataModel found = em.find(UserDataModel.class, user.getId().getValue());
-			if (Objects.equals(found, null))
+			if (Objects.equals(found, null)) {
 				em.persist(toDataModel(user));
-			else
+			} else {
 				found = transfer(user, found);
-			// em.getTransaction().commit();
+			}
+			em.getTransaction().commit();
 		} catch (Exception e) {
-			// em.getTransaction().rollback();
+			em.getTransaction().rollback();
 			throw e;
+		} finally {
+			em.close();
 		}
 	}
 
