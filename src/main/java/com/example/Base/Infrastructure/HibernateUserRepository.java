@@ -75,12 +75,21 @@ public class HibernateUserRepository implements UserRepository {
 		return model;
 	}
 
+	// BUG 上は行ける、下はだめ（java.lang.IllegalArgumentException:
+	// Unable to locate persister:
 	private UserDataModel toDataModel(User from) {
-		return new UserDataModel() {
-			{
-				setId(from.getId().getValue());
-				setName(from.getName().getValue());
-			}
-		};
+		UserDataModel dataModel = new UserDataModel();
+		dataModel.setId(from.getId().getValue());
+		dataModel.setName(from.getName().getValue());
+		return dataModel;
 	}
+
+	// private UserDataModel toDataModel(User from) {
+	// return new UserDataModel() {
+	// {
+	// setId(from.getId().getValue());
+	// setName(from.getName().getValue());
+	// }
+	// };
+	// }
 }
