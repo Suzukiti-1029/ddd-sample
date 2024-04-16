@@ -27,4 +27,10 @@ public class User {
 
 	private UserId id;
 	private UserName name;
+
+	public void changeName(UserName name) throws Exception {
+		if (Objects.equals(name, null))
+			throw new Exception("changeName: userName must not be null.");
+		this.name = name;
+	}
 }

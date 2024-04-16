@@ -1,14 +1,14 @@
 package com.example.Base.Domain.ValueObject;
 
-import java.util.Objects;
+import org.apache.commons.lang3.StringUtils;
 
 import lombok.Getter;
 
 @Getter
 public class UserId {
 	public UserId(String val) throws Exception {
-		if (Objects.equals(val, null))
-			throw new Exception("UserId: value must not be null.");
+		if (StringUtils.isBlank(val))
+			throw new Exception("UserId: value must not be blank.");
 		value = val;
 	}
 
