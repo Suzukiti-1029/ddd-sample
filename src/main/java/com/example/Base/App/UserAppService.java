@@ -1,8 +1,11 @@
 package com.example.Base.App;
 
+import java.util.Objects;
+
 import com.example.Base.Domain.Entity.User;
 import com.example.Base.Domain.Repository.UserRepository;
 import com.example.Base.Domain.Service.UserService;
+import com.example.Base.Domain.ValueObject.UserId;
 import com.example.Base.Domain.ValueObject.UserName;
 
 import lombok.RequiredArgsConstructor;
@@ -20,4 +23,12 @@ public class UserAppService {
 		userRepository.save(user);
 	}
 
+	public UserData get(String id) throws Exception {
+		UserId targetId = new UserId(id);
+		User user = userRepository.find(targetId);
+		if (Objects.equals(user, null)) {
+			return null;
+		}
+		return new UserData(user);
+	}
 }
