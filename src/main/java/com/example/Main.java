@@ -29,6 +29,7 @@ public class Main {
 		}
 	}
 
+	// TODO 削除（UserAppService#registerに移動）
 	public void createUser(String userName) throws Exception {
 		User user = new User(new UserName(userName));
 		if (userService.Exists(user)) {
