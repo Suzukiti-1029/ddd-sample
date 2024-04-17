@@ -1,5 +1,7 @@
 package com.example;
 
+import com.example.Base.App.UserAppService;
+import com.example.Base.App.UserUpdateCommand;
 import com.example.Base.Domain.Entity.User;
 import com.example.Base.Domain.Repository.UserRepository;
 import com.example.Base.Domain.Service.UserService;
@@ -10,10 +12,12 @@ import com.example.Base.Infrastructure.PersistenceFactoryManager;
 public class Main {
 	private final UserRepository userRepository;
 	private final UserService userService;
+	private final UserAppService userAppService;
 
 	public Main(UserRepository uRepository) {
 		userRepository = uRepository;
 		userService = new UserService(uRepository);
+		userAppService = new UserAppService(uRepository, userService);
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -36,5 +40,15 @@ public class Main {
 			throw new Exception(userName + "はすでに存在しています。");
 		}
 		userRepository.save(user);
+	}
+
+	public void updateUser(String id, String name) throws Exception {
+		UserUpdateCommand updateNameCommand = new UserUpdateCommand(id) {
+			{
+				// BUG になるかもしれない（なんとなく使ってる）
+				setName(name);
+			}
+		};
+		userAppService.update(updateNameCommand);
 	}
 }
