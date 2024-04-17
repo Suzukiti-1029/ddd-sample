@@ -1,4 +1,4 @@
-package com.example.Base.App;
+package com.example.Base.app.users;
 
 import java.util.Objects;
 
@@ -16,15 +16,6 @@ import lombok.RequiredArgsConstructor;
 public class UserAppService {
 	private final UserRepository userRepository;
 	private final UserService userService;
-
-	public void register(UserRegisterCommand command) throws Exception {
-		String name = command.getName();
-		User user = new User(new UserName(name));
-		if (userService.Exists(user)) {
-			throw new Exception(name + "はすでに存在しています。");
-		}
-		userRepository.save(user);
-	}
 
 	public UserData get(String id) throws Exception {
 		UserId targetId = new UserId(id);
@@ -50,14 +41,5 @@ public class UserAppService {
 			}
 		}
 		userRepository.save(user);
-	}
-
-	public void delete(UserDeleteCommand command) throws Exception {
-		UserId targetId = new UserId(command.getId());
-		User user = userRepository.find(targetId);
-		if (Objects.equals(user, null)) {
-			throw new Exception("指定されたユーザが見つかりません。");
-		}
-		userRepository.delete(user);
 	}
 }

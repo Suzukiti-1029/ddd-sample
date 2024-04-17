@@ -1,13 +1,13 @@
 package com.example;
 
-import com.example.Base.App.UserAppService;
-import com.example.Base.App.UserUpdateCommand;
 import com.example.Base.Domain.Entity.User;
 import com.example.Base.Domain.Repository.UserRepository;
 import com.example.Base.Domain.Service.UserService;
 import com.example.Base.Domain.ValueObject.UserName;
 import com.example.Base.Infrastructure.HibernateUserRepository;
 import com.example.Base.Infrastructure.PersistenceFactoryManager;
+import com.example.Base.app.users.UserAppService;
+import com.example.Base.app.users.UserUpdateCommand;
 
 public class Main {
 	private final UserRepository userRepository;

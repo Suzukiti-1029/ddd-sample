@@ -1,4 +1,4 @@
-package com.example.Base.App;
+package com.example.Base.app.users;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

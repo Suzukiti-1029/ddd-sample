@@ -1,4 +1,4 @@
-package com.example.Base.App;
+package com.example.Base.app.users;
 
 import com.example.Base.Domain.Entity.User;
 
