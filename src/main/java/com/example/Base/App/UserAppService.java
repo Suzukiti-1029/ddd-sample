@@ -17,7 +17,8 @@ public class UserAppService {
 	private final UserRepository userRepository;
 	private final UserService userService;
 
-	public void register(String name) throws Exception {
+	public void register(UserRegisterCommand command) throws Exception {
+		String name = command.getName();
 		User user = new User(new UserName(name));
 		if (userService.Exists(user)) {
 			throw new Exception(name + "はすでに存在しています。");
