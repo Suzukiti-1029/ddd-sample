@@ -1,4 +1,4 @@
-package com.example.Base.app.users;
+package com.example.Base.app.users.impl;
 
 import java.util.Objects;
 
@@ -9,11 +9,13 @@ import com.example.Base.Domain.Repository.UserRepository;
 import com.example.Base.Domain.Service.UserService;
 import com.example.Base.Domain.ValueObject.UserId;
 import com.example.Base.Domain.ValueObject.UserName;
+import com.example.Base.app.users.UserData;
+import com.example.Base.app.users.UserUpdateCommand;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class UserAppService {
+public class UserAppServiceImpl {
 	private final UserRepository userRepository;
 	private final UserService userService;
 

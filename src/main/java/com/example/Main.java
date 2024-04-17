@@ -6,26 +6,28 @@ import com.example.Base.Domain.Service.UserService;
 import com.example.Base.Domain.ValueObject.UserName;
 import com.example.Base.Infrastructure.HibernateUserRepository;
 import com.example.Base.Infrastructure.PersistenceFactoryManager;
-import com.example.Base.app.users.UserAppService;
+import com.example.Base.app.users.UserRegisterCommand;
+import com.example.Base.app.users.UserRegisterService;
 import com.example.Base.app.users.UserUpdateCommand;
+import com.example.Base.app.users.impl.UserAppServiceImpl;
 
 public class Main {
 	private final UserRepository userRepository;
 	private final UserService userService;
-	private final UserAppService userAppService;
+	private final UserRegisterService userRegisterService;
 
-	public Main(UserRepository uRepository) {
+	public Main(UserRepository uRepository, UserRegisterService uRegisterService) {
 		userRepository = uRepository;
 		userService = new UserService(uRepository);
-		userAppService = new UserAppService(uRepository, userService);
+		userRegisterService = uRegisterService;
 	}
 
 	public static void main(String[] args) throws Exception {
 		PersistenceFactoryManager pfm = PersistenceFactoryManager.getInstance();
 		try {
 			UserRepository uRepository = new HibernateUserRepository(pfm);
-			Main main = new Main(uRepository);
-			main.createUser(args[0]);
+			// Main main = new Main(uRepository);
+			// main.registerUser(args[0]);
 		} catch (Exception e) {
 			throw e;
 		} finally {
@@ -33,13 +35,9 @@ public class Main {
 		}
 	}
 
-	// TODO 削除（UserAppService#registerに移動）
-	public void createUser(String userName) throws Exception {
-		User user = new User(new UserName(userName));
-		if (userService.Exists(user)) {
-			throw new Exception(userName + "はすでに存在しています。");
-		}
-		userRepository.save(user);
+	public void registerUser(String userName) throws Exception {
+		UserRegisterCommand command = new UserRegisterCommand(userName);
+		userRegisterService.handle(command);
 	}
 
 	public void updateUser(String id, String name) throws Exception {
@@ -49,6 +47,6 @@ public class Main {
 				setName(name);
 			}
 		};
-		userAppService.update(updateNameCommand);
+		// userAppService.update(updateNameCommand);
 	}
 }
