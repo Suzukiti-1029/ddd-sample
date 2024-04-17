@@ -50,4 +50,13 @@ public class UserAppService {
 		}
 		userRepository.save(user);
 	}
+
+	public void delete(UserDeleteCommand command) throws Exception {
+		UserId targetId = new UserId(command.getId());
+		User user = userRepository.find(targetId);
+		if (Objects.equals(user, null)) {
+			throw new Exception("指定されたユーザが見つかりません。");
+		}
+		userRepository.delete(user);
+	}
 }
