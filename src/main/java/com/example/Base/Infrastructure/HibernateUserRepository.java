@@ -13,13 +13,11 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class HibernateUserRepository implements UserRepository {
 	private final EntityManagerFactory emf;
-
-	public HibernateUserRepository(PersistenceFactoryManager pfm) throws Exception {
-		emf = pfm.provide();
-	}
 
 	@Override
 	public User find(UserName userName) throws Exception {
