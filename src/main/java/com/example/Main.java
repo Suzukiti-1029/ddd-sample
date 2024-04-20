@@ -8,10 +8,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.example.Base.Domain.Repository.UserRepository;
 import com.example.Base.Domain.Service.UserService;
-import com.example.Base.Infrastructure.InMemoryUserRepository;
+import com.example.Base.Infrastructure.HibernateUserRepository;
 import com.example.Base.app.users.UserRegisterCommand;
 import com.example.Base.app.users.UserRegisterService;
 import com.example.Base.app.users.impl.UserRegisterServiceImpl;
+
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 public class Main {
 	private static final AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -47,13 +50,18 @@ public class Main {
 			System.err.println(e.getMessage());
 		} finally {
 			scanner.close();
+			ctx.getBean(EntityManagerFactory.class).close();
 			ctx.close();
 		}
 	}
 
 	private static void startup() {
+		ctx.registerBean(EntityManagerFactory.class,
+				() -> Persistence.createEntityManagerFactory("myPU"),
+				bd -> bd.setScope(BeanDefinition.SCOPE_SINGLETON));
 		ctx.registerBean(UserRepository.class,
-				InMemoryUserRepository::new,
+				() -> new HibernateUserRepository(
+						ctx.getBean(EntityManagerFactory.class)),
 				bd -> bd.setScope(BeanDefinition.SCOPE_SINGLETON));
 		ctx.registerBean(UserService.class,
 				bd -> bd.setScope(BeanDefinition.SCOPE_PROTOTYPE));
