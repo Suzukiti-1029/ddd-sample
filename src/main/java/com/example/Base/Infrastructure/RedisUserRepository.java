@@ -1,8 +1,8 @@
-package com.example.Base.Infrastructure;
+package com.example.base.infrastructure;
 
-import com.example.Base.Domain.Entity.User;
-import com.example.Base.Domain.Repository.UserRepository;
-import com.example.Base.Domain.ValueObject.UserName;
+import com.example.base.domain.ValueObject.UserName;
+import com.example.base.domain.entity.User;
+import com.example.base.domain.repository.UserRepository;
 
 import redis.clients.jedis.Jedis;
 

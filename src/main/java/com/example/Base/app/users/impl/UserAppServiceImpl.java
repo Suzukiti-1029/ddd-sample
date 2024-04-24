@@ -1,16 +1,16 @@
-package com.example.Base.app.users.impl;
+package com.example.base.app.users.impl;
 
 import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.example.Base.Domain.Entity.User;
-import com.example.Base.Domain.Repository.UserRepository;
-import com.example.Base.Domain.Service.UserService;
-import com.example.Base.Domain.ValueObject.UserId;
-import com.example.Base.Domain.ValueObject.UserName;
-import com.example.Base.app.users.UserData;
-import com.example.Base.app.users.UserUpdateCommand;
+import com.example.base.app.users.UserData;
+import com.example.base.app.users.UserUpdateCommand;
+import com.example.base.domain.ValueObject.UserId;
+import com.example.base.domain.ValueObject.UserName;
+import com.example.base.domain.entity.User;
+import com.example.base.domain.repository.UserRepository;
+import com.example.base.domain.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 

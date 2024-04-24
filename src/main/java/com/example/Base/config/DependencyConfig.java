@@ -1,15 +1,15 @@
-package com.example.Base.config;
+package com.example.base.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
 
-import com.example.Base.Domain.Repository.UserRepository;
-import com.example.Base.Domain.Service.UserService;
-import com.example.Base.Infrastructure.HibernateUserRepository;
-import com.example.Base.app.users.UserRegisterService;
-import com.example.Base.app.users.impl.UserRegisterServiceImpl;
+import com.example.base.app.users.UserRegisterService;
+import com.example.base.app.users.impl.UserRegisterServiceImpl;
+import com.example.base.domain.repository.UserRepository;
+import com.example.base.domain.service.UserService;
+import com.example.base.infrastructure.HibernateUserRepository;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

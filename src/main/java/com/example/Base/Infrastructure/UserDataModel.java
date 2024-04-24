@@ -1,4 +1,4 @@
-package com.example.Base.Infrastructure;
+package com.example.base.infrastructure;
 
 import java.io.Serializable;
 

@@ -1,9 +1,9 @@
-package com.example.Base.Domain.Service;
+package com.example.base.domain.service;
 
 import java.util.Objects;
 
-import com.example.Base.Domain.Entity.User;
-import com.example.Base.Domain.Repository.UserRepository;
+import com.example.base.domain.entity.User;
+import com.example.base.domain.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 

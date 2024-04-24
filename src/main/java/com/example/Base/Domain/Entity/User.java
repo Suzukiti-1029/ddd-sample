@@ -1,10 +1,10 @@
-package com.example.Base.Domain.Entity;
+package com.example.base.domain.entity;
 
 import java.util.Objects;
 import java.util.UUID;
 
-import com.example.Base.Domain.ValueObject.UserId;
-import com.example.Base.Domain.ValueObject.UserName;
+import com.example.base.domain.ValueObject.UserId;
+import com.example.base.domain.ValueObject.UserName;
 
 import lombok.Getter;
 

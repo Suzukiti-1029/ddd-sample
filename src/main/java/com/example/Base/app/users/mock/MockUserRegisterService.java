@@ -1,7 +1,7 @@
-package com.example.Base.app.users.mock;
+package com.example.base.app.users.mock;
 
-import com.example.Base.app.users.UserRegisterCommand;
-import com.example.Base.app.users.UserRegisterService;
+import com.example.base.app.users.UserRegisterCommand;
+import com.example.base.app.users.UserRegisterService;
 
 public class MockUserRegisterService implements UserRegisterService {
 	@Override

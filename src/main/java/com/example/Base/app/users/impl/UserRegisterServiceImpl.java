@@ -1,11 +1,11 @@
-package com.example.Base.app.users.impl;
+package com.example.base.app.users.impl;
 
-import com.example.Base.Domain.Entity.User;
-import com.example.Base.Domain.Repository.UserRepository;
-import com.example.Base.Domain.Service.UserService;
-import com.example.Base.Domain.ValueObject.UserName;
-import com.example.Base.app.users.UserRegisterCommand;
-import com.example.Base.app.users.UserRegisterService;
+import com.example.base.app.users.UserRegisterCommand;
+import com.example.base.app.users.UserRegisterService;
+import com.example.base.domain.ValueObject.UserName;
+import com.example.base.domain.entity.User;
+import com.example.base.domain.repository.UserRepository;
+import com.example.base.domain.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 

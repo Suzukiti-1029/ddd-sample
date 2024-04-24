@@ -1,4 +1,4 @@
-package com.example.Base.Infrastructure;
+package com.example.base.infrastructure;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -6,10 +6,10 @@ import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.example.Base.Domain.Entity.User;
-import com.example.Base.Domain.Repository.UserRepository;
-import com.example.Base.Domain.ValueObject.UserId;
-import com.example.Base.Domain.ValueObject.UserName;
+import com.example.base.domain.ValueObject.UserId;
+import com.example.base.domain.ValueObject.UserName;
+import com.example.base.domain.entity.User;
+import com.example.base.domain.repository.UserRepository;
 
 public class InMemoryUserRepository implements UserRepository {
 	// 疑似DB

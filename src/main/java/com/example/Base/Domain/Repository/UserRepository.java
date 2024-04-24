@@ -1,8 +1,8 @@
-package com.example.Base.Domain.Repository;
+package com.example.base.domain.repository;
 
-import com.example.Base.Domain.Entity.User;
-import com.example.Base.Domain.ValueObject.UserId;
-import com.example.Base.Domain.ValueObject.UserName;
+import com.example.base.domain.ValueObject.UserId;
+import com.example.base.domain.ValueObject.UserName;
+import com.example.base.domain.entity.User;
 
 public interface UserRepository {
 	User find(UserId userId); // throws Exception;

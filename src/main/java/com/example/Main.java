@@ -6,12 +6,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.example.Base.Domain.Repository.UserRepository;
-import com.example.Base.Domain.Service.UserService;
-import com.example.Base.Infrastructure.HibernateUserRepository;
-import com.example.Base.app.users.UserRegisterCommand;
-import com.example.Base.app.users.UserRegisterService;
-import com.example.Base.app.users.impl.UserRegisterServiceImpl;
+import com.example.base.app.users.UserRegisterCommand;
+import com.example.base.app.users.UserRegisterService;
+import com.example.base.app.users.impl.UserRegisterServiceImpl;
+import com.example.base.domain.repository.UserRepository;
+import com.example.base.domain.service.UserService;
+import com.example.base.infrastructure.HibernateUserRepository;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

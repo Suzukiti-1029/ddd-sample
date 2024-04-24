@@ -1,4 +1,4 @@
-package com.example.Base.Domain.ValueObject;
+package com.example.base.domain.ValueObject;
 
 import org.apache.commons.lang3.StringUtils;
 

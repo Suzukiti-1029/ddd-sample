@@ -1,6 +1,6 @@
-package com.example.Base.app.users;
+package com.example.base.app.users;
 
-import com.example.Base.Domain.Entity.User;
+import com.example.base.domain.entity.User;
 
 import lombok.Getter;
 

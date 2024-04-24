@@ -1,11 +1,11 @@
-package com.example.Base.app.users.impl;
+package com.example.base.app.users.impl;
 
 import java.util.Objects;
 
-import com.example.Base.Domain.Entity.User;
-import com.example.Base.Domain.Repository.UserRepository;
-import com.example.Base.Domain.ValueObject.UserId;
-import com.example.Base.app.users.UserDeleteCommand;
+import com.example.base.app.users.UserDeleteCommand;
+import com.example.base.domain.ValueObject.UserId;
+import com.example.base.domain.entity.User;
+import com.example.base.domain.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 

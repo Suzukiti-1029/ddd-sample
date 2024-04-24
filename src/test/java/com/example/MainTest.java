@@ -4,12 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.Base.Domain.Entity.User;
-import com.example.Base.Domain.Repository.UserRepository;
-import com.example.Base.Domain.ValueObject.UserName;
-import com.example.Base.Infrastructure.HibernateUserRepository;
-import com.example.Base.Infrastructure.InMemoryUserRepository;
-import com.example.Base.Infrastructure.PersistenceFactoryManager;
+import com.example.base.domain.ValueObject.UserName;
+import com.example.base.domain.entity.User;
+import com.example.base.domain.repository.UserRepository;
+import com.example.base.infrastructure.HibernateUserRepository;
+import com.example.base.infrastructure.InMemoryUserRepository;
+import com.example.base.infrastructure.PersistenceFactoryManager;
 
 public class MainTest {
 	@Test
